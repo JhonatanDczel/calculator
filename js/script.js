@@ -1,5 +1,7 @@
 //Creacion de interfaz
 const numPad = document.querySelector('.numpad');
+const toolBar = document.querySelector('.tool-bar');
+const operations = document.querySelector('.operations');
 
 for (let i = 0; i < 10; i++) {
   const numBtn = document.createElement('button');
@@ -13,4 +15,23 @@ for (let i = 0; i < 10; i++) {
     numPad.appendChild(dotBtn);
     dotBtn.classList.add('button');
   }
+}
+
+for (let i = 0; i < 3; i++) {
+  const toolBtn = document.createElement('button');
+  toolBtn.classList.add('button');
+  switch (i) {
+    case 0:
+      toolBtn.textContent = 'Ac';
+      break;
+
+    case 1:
+      toolBtn.textContent = 'Del';
+      break;
+
+    case 2:
+      toolBtn.textContent = 'C';
+      break;
+  }
+  toolBar.appendChild(toolBtn);
 }
