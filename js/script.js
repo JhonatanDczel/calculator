@@ -35,3 +35,11 @@ for (let i = 0; i < 3; i++) {
   }
   toolBar.appendChild(toolBtn);
 }
+
+for (let i = 0; i < 5; i++) {
+  const operatorBtn = document.createElement('button');
+  let symbols = ['/', '*', '-', '+', '='];
+  operatorBtn.textContent = symbols[i];
+  operatorBtn.classList.add('button');
+  operations.appendChild(operatorBtn);
+}
