@@ -1,8 +1,9 @@
-//Creacion de interfaz
+//Variables globales
 const numPad = document.querySelector('.numpad');
 const toolBar = document.querySelector('.tool-bar');
 const operations = document.querySelector('.operations');
 
+//Creacion de interfaz
 for (let i = 0; i < 10; i++) {
   const numBtn = document.createElement('button');
   numBtn.textContent = 9 - i;
