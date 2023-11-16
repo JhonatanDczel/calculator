@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-  padding: 40px 0 16px 0;
+  padding: 32px 0 16px 0;
 }
 
 .calculator {
@@ -75,6 +75,7 @@ button {
   border-radius: 16px;
   color: #38B9FF;
   border: none;
+  font-size: 24px;
 }
 
 .button.horizontal {

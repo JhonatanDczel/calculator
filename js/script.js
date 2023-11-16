@@ -1,47 +1,45 @@
 //Variables globales
 const buttons = document.querySelector('.buttons');
-const numPad = document.querySelector('.numpad');
-const toolBar = document.querySelector('.tool-bar');
-const operations = document.querySelector('.operations');
 
-//Creacion de interfaz
+//Creacion de botones de la interfaz
 
-for (let i = 0; i < 3; i++) {
+const toolBar = ['Ac', 'Del', 'C'];
+const numPad = ['.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const operations = ['/', '*', '-', '+', '='];
+
+const toolBarButtons = toolBar.map(element => {
   const toolBtn = document.createElement('button');
-  toolBtn.classList.add('button');
-  switch (i) {
-    case 0:
-      toolBtn.textContent = 'Ac';
-      break;
-    case 1:
-      toolBtn.textContent = 'Del';
-      break;
-    case 2:
-      toolBtn.textContent = 'C';
-      break;
-  }
-  buttons.appendChild(toolBtn);
-}
+  toolBtn.id = element;
+  toolBtn.textContent = element;
+  return toolBtn;
+});
 
-for (let i = 0; i < 10; i++) {
+const numPadButtons = numPad.map(element => {
   const numBtn = document.createElement('button');
-  numBtn.textContent = 9 - i;
-  buttons.appendChild(numBtn);
-  numBtn.classList.add('button');
-  if (numBtn.textContent == 0) numBtn.classList.add('horizontal');
-  if (i == 9) {
-    const dotBtn = document.createElement('button');
-    dotBtn.textContent = '.';
-    buttons.appendChild(dotBtn);
-    dotBtn.classList.add('button');
-  }
-}
+  numBtn.id = element;
+  numBtn.textContent = element;
+  if (element == '0') numBtn.classList.add('horizontal');
+  return numBtn;
+});
 
-
-for (let i = 0; i < 5; i++) {
+const operationsButtons = operations.map(element => {
   const operatorBtn = document.createElement('button');
-  let symbols = ['/', '*', '-', '+', '='];
-  operatorBtn.textContent = symbols[i];
-  operatorBtn.classList.add('button');
-  buttons.appendChild(operatorBtn);
+  operatorBtn.id = element;
+  operatorBtn.textContent = element;
+  return operatorBtn;
+});
+
+addButtons();
+function addButtons() {
+  for (let i = 0; i < 19; i++) {
+    let btn;
+    if ((i + 1) % 4 == 0 || i == 18) {
+      btn = operationsButtons.shift();
+    } else if (i < 3) {
+      btn = toolBarButtons.shift();
+    } else {
+      btn = numPadButtons.shift();
+    }
+    buttons.appendChild(btn);
+  }
 }
