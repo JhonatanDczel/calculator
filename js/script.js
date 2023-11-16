@@ -1,5 +1,30 @@
 //Variables globales
 const buttons = document.querySelector('.buttons');
+const display1 = document.querySelector('.display-1');
+const display2 = document.querySelector('.display-2');
+let firstNumber;
+let secondNumber;
+let d1Value = '';
+let d2Value = '';
+
+//Creacion de funciones 
+function operate(a, b, operation) {
+  return operation(a, b);
+}
+
+function refreshDisplay() {
+  display1.textContent = d1Value;
+  display2.textContent = d2Value;
+}
+//Agregando funcionalidades 
+buttons.addEventListener('click', e => {
+  let btn = e.target;
+  if (btn.classList.contains('numpad')) {
+    d2Value += btn.textContent;
+  }
+  refreshDisplay();
+});
+
 
 //Creacion de botones de la interfaz
 
@@ -24,6 +49,7 @@ const numPadButtons = numPad.map(element => {
   numBtn.textContent = element;
   numBtn.style.height = buttonWidth + 'px';
   numBtn.style.width = buttonWidth + 'px';
+  numBtn.classList.add('numpad');
   if (element == '0') numBtn.style.width = buttonWidth * 2 + 'px';
   return numBtn;
 });
