@@ -6,6 +6,7 @@ let firstNumber;
 let secondNumber;
 let d1Value = '';
 let d2Value = '';
+let operator = '';
 
 //Creacion de funciones 
 function operate(a, b, operation) {
@@ -38,6 +39,10 @@ buttons.addEventListener('click', e => {
   if (btn.id == '</>') {
     d1Value = 'Hi, I\'m';
     d2Value = 'Jhonatan!'
+  }
+  if (btn.classList.contains('operations') && btn.id != '=') {
+    operator = btn.id;
+    console.log(operator);
   }
   refreshDisplay();
 });
