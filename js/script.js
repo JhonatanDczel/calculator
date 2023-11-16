@@ -13,8 +13,14 @@ function operate(a, b, operation) {
 }
 
 function refreshDisplay() {
-  display1.textContent = d1Value;
-  display2.textContent = d2Value;
+  if (d2Value[0] == '0') d2Value = d2Value.slice(1);
+  if (d1Value == '') d1Value = '~';
+  if (d2Value == '') d2Value = '0';
+  display1.textContent = d1Value.slice(0, 10);
+  display2.textContent = d2Value.slice(0, 10);
+  d2Value = d2Value.slice(0, 10);
+  d1Value = d1Value.slice(0, 10);
+  console.log(`d1: ${d1Value}\n d2:${d2Value}`);
 }
 //Agregando funcionalidades 
 buttons.addEventListener('click', e => {
@@ -22,13 +28,24 @@ buttons.addEventListener('click', e => {
   if (btn.classList.contains('numpad')) {
     d2Value += btn.textContent;
   }
+  if (btn.id == 'Del') {
+    d2Value = d2Value.slice(0, d2Value.length - 1);
+  }
+  if (btn.id == 'C') {
+    d1Value = '';
+    d2Value = '';
+  }
+  if (btn.id == '</>') {
+    d1Value = 'Hi, I\'m';
+    d2Value = 'Jhonatan!'
+  }
   refreshDisplay();
 });
 
 
 //Creacion de botones de la interfaz
 
-const toolBar = ['Ac', 'Del', 'C'];
+const toolBar = ['</>', 'Del', 'C'];
 const numPad = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
 const operations = ['/', '*', '-', '+', '='];
 let buttonWidth = parseInt(window.getComputedStyle(buttons).getPropertyValue('width')) / 100 * 23.0;
