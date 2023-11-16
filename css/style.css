@@ -75,7 +75,19 @@ button {
   color: #109DFF;
   border: none;
   font-size: 32px;
+  transition: transform 0.2s ease;
 }
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
 
 .tool-bar {
   color: #858585;
