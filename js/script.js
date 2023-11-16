@@ -16,10 +16,10 @@ function refreshDisplay() {
   if (d2Value[0] == '0') d2Value = d2Value.slice(1);
   if (d1Value == '') d1Value = '~';
   if (d2Value == '') d2Value = '0';
-  display1.textContent = d1Value.slice(0, 10);
-  display2.textContent = d2Value.slice(0, 10);
-  d2Value = d2Value.slice(0, 10);
-  d1Value = d1Value.slice(0, 10);
+  display1.textContent = d1Value.slice(0, 9);
+  display2.textContent = d2Value.slice(0, 9);
+  d2Value = d2Value.slice(0, 9);
+  d1Value = d1Value.slice(0, 9);
   console.log(`d1: ${d1Value}\n d2:${d2Value}`);
 }
 //Agregando funcionalidades 
