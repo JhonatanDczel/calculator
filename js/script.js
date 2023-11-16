@@ -4,13 +4,17 @@ const buttons = document.querySelector('.buttons');
 //Creacion de botones de la interfaz
 
 const toolBar = ['Ac', 'Del', 'C'];
-const numPad = ['.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const numPad = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
 const operations = ['/', '*', '-', '+', '='];
+let buttonWidth = parseInt(window.getComputedStyle(buttons).getPropertyValue('width')) / 100 * 23.0;
 
 const toolBarButtons = toolBar.map(element => {
   const toolBtn = document.createElement('button');
   toolBtn.id = element;
   toolBtn.textContent = element;
+  toolBtn.classList.add('tool-bar');
+  toolBtn.style.height = buttonWidth + 'px';
+  toolBtn.style.width = buttonWidth + 'px';
   return toolBtn;
 });
 
@@ -18,7 +22,9 @@ const numPadButtons = numPad.map(element => {
   const numBtn = document.createElement('button');
   numBtn.id = element;
   numBtn.textContent = element;
-  if (element == '0') numBtn.classList.add('horizontal');
+  numBtn.style.height = buttonWidth + 'px';
+  numBtn.style.width = buttonWidth + 'px';
+  if (element == '0') numBtn.style.width = buttonWidth * 2 + 'px';
   return numBtn;
 });
 
@@ -26,10 +32,12 @@ const operationsButtons = operations.map(element => {
   const operatorBtn = document.createElement('button');
   operatorBtn.id = element;
   operatorBtn.textContent = element;
+  operatorBtn.classList.add('operations');
+  operatorBtn.style.height = buttonWidth + 'px';
+  operatorBtn.style.width = buttonWidth + 'px';
   return operatorBtn;
 });
 
-addButtons();
 function addButtons() {
   for (let i = 0; i < 19; i++) {
     let btn;
@@ -43,3 +51,4 @@ function addButtons() {
     buttons.appendChild(btn);
   }
 }
+addButtons();
