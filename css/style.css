@@ -5,6 +5,10 @@
   font-family: 'Poppins', 'Open Sans', sans-serif;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -23,16 +27,14 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  height: 80vh;
-  width: 37vh;
+  height: 72vh;
+  width: 36vh;
   background: rgba(247, 248, 251, 0.8);
   border-radius: 40px;
   backdrop-filter: blur(5px);
   box-shadow: 20px 20px 50px rgba(96, 190, 255, 0.55);
   padding: 32px;
-  gap: 48px;
 }
 
 .display {
@@ -44,27 +46,29 @@ body {
   gap: 24px;
   width: 100%;
   flex-grow: 1;
-  padding: 48px 0 0 0;
 }
 
 .display-1{ 
   color: #818181;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
 .display-2 {
   text-overflow: ellipsis;
   color: #424242;
-  font-size: 48px;
+  font-size: 3rem;
 }
 
 .buttons {
   display: flex;
   width: 100%;
-  flex-grow: 2;
+  height: 60%;
+  flex-grow: 0;
+  flex-shrink: 0;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-self: flex-end;
   align-items: center;
 }
 
@@ -76,7 +80,7 @@ button {
   border-radius: 16px;
   color: #109DFF;
   border: none;
-  font-size: 32px;
+  font-size: 2rem;
   transition: transform 0.2s ease;
 }
 
@@ -96,6 +100,12 @@ button:active {
   font-weight: 500;
 }
 
+#\= {
+  background-color: #109dff;
+  color: white;
+  font-weight: bold;
+}
+
 .operations {
   background-color: #ADE2FF;
 }
@@ -109,3 +119,10 @@ a {
   color: black;
   font-weight: bold;
 }
+
+@media (max-height: 800px){
+  html {
+    font-size: 12px;
+  }
+}
+
