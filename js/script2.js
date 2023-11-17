@@ -2,9 +2,32 @@
 const buttons = document.querySelector('.buttons');
 const display1 = document.querySelector('.display-1');
 const display2 = document.querySelector('.display-2');
+let firstNumber;
+let secondNumber;
+let operator;
+
+//FUnciones para la calculadora 
+function operate(a, b, operation) {
+  return operation(a, b);
+}
+
+function suma(a, b) {
+  return a + b;
+}
+
+function resta(a, b) {
+  return a - b;
+}
+
+function multiplicacion(a, b) {
+  return a * b;
+}
+
+function division(a, b) {
+  return a / b;
+}
 
 //Creacion de botones de la interfaz
-
 const toolBar = ['</>', 'Del', 'C'];
 const numPad = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
 const operations = ['/', '*', '-', '+', '='];
