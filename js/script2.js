@@ -7,7 +7,55 @@ let secondNumber;
 let operator;
 let shouldReset = false;
 
+
+//Creacion de botones de la interfaz
+const toolBar = ['</>', 'Del', 'C'];
+const numPad = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
+const operations = ['/', 'x', '-', '+', '='];
+
+makeButtons();
+window.addEventListener('resize', makeButtons);
+//Agregando events a los botones
+const numberButtons = document.querySelectorAll('.numpad');
+const operatorButtons = document.querySelectorAll('.operations');
+const equalsButton = document.getElementById('=');
+const clearButton = document.getElementById('C');
+const deleteButton = document.getElementById('Del');
+const pointButton = document.getElementById('.');
+
+window.addEventListener('keydown', handleKeyboardInput);
+equalsButton.addEventListener('click', evaluate);
+clearButton.addEventListener('click', clear);
+deleteButton.addEventListener('click', deleteNumber);
+pointButton.addEventListener('click', appendPoint);
+
+numberButtons.forEach((button) =>
+  button.addEventListener('click', () => appendNumber(button.textContent))
+);
+
+operatorButtons.forEach((button) =>
+  button.addEventListener('click', () => setOperation(button.textContent))
+);
+
+
 //Funciones de funcionamiento de la calculadora 
+function handleKeyboardInput(e) {
+  if (e.key >= 0 && e.key <= 9) appendNumber(e.key);
+  if (e.key === '.') appendPoint();
+  if (e.key === '=' || e.key === 'Enter') evaluate();
+  if (e.key === 'Backspace') deleteNumber();
+  if (e.key === 'Escape') clear();
+  if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/');
+  setOperation(convertOperator(e.key));
+}
+
+function convertOperator(keyboardOperator) {
+  if (keyboardOperator === '/') return '÷'
+  if (keyboardOperator === '*') return '×'
+  if (keyboardOperator === '-') return '−'
+  if (keyboardOperator === '+') return '+'
+}
+
 function refreshDisplay() {
   display2.textContent = '';
   shouldReset = false;
@@ -96,10 +144,6 @@ function division(a, b) {
   return a / b;
 }
 
-//Creacion de botones de la interfaz
-const toolBar = ['</>', 'Del', 'C'];
-const numPad = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
-const operations = ['/', 'x', '-', '+', '='];
 
 function makeButtons() {
   buttons.innerHTML = '';
@@ -152,5 +196,3 @@ function makeButtons() {
   addButtons();
   console.log('from makebuttons');
 }
-makeButtons();
-window.addEventListener('resize', makeButtons);
