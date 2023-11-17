@@ -6,9 +6,30 @@ let firstNumber;
 let secondNumber;
 let operator;
 
-//FUnciones para la calculadora 
+let d1value;
+let d2value;
+
+//Funciones de funcionamiento de la calculadora 
+function refreshDisplay() {
+
+}
+
+//FUnciones para las operationes de la claculadora 
 function operate(a, b, operation) {
-  return operation(a, b);
+  a = Number(a);
+  b = Number(b);
+  switch (operation) {
+    case '+':
+      return suma(a, b);
+    case '-':
+      return resta(a, b);
+    case 'x':
+      return multiplicacion(a, b);
+    case '/':
+      return division(a, b);
+    default:
+      return null;
+  }
 }
 
 function suma(a, b) {
@@ -30,7 +51,7 @@ function division(a, b) {
 //Creacion de botones de la interfaz
 const toolBar = ['</>', 'Del', 'C'];
 const numPad = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
-const operations = ['/', '*', '-', '+', '='];
+const operations = ['/', 'x', '-', '+', '='];
 
 function makeButtons() {
   buttons.innerHTML = '';
