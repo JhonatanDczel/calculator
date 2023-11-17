@@ -5,6 +5,7 @@ const display2 = document.querySelector('.display-2');
 let firstNumber;
 let secondNumber;
 let operator;
+let shouldReset = false;
 
 let d1value;
 let d2value;
@@ -15,6 +16,18 @@ function refreshDisplay() {
 }
 
 //FUnciones para las operationes de la claculadora 
+function evaluate() {
+  if (operator === null || shouldReset) return;
+  secondNumber = display2.textContent;
+  display2.textContent = roundResult(operate(firstNumber, secondNumber, operator));
+  display1.textContent = `${firstNumber} ${operator} ${secondNumber} =`;
+  operator = null;
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000;
+}
+
 function operate(a, b, operation) {
   a = Number(a);
   b = Number(b);
