@@ -16,6 +16,29 @@ function refreshDisplay() {
 }
 
 //FUnciones para las operationes de la claculadora 
+
+function appendPoint() {
+  if (shouldReset) {
+    refreshDisplay();
+  }
+  if (display2.textContent === '') {
+    display2.textContent = 0;
+  }
+  if (display2.textContent.includes('.')) return;
+  display2.textContent += '.';
+}
+
+function deleteNumber() {
+  display2.textContent = display2.textContent.toString().slice(0, -1);
+}
+
+function setOperation(op) {
+  if (operator !== null) evaluate();
+  firstNumber = display2.textContent;
+  operator = op;
+  display1.textContent = `${firstNumber} ${operator} ${secondNumber}`;
+  shouldReset = true;
+}
 function evaluate() {
   if (operator === null || shouldReset) return;
   secondNumber = display2.textContent;
