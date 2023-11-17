@@ -17,6 +17,14 @@ function refreshDisplay() {
 
 //FUnciones para las operationes de la claculadora 
 
+function clear() {
+  display2.textContent = '0';
+  display1.textContent = '';
+  firstNumber = '';
+  secondNumber = '';
+  operator = null;
+}
+
 function appendPoint() {
   if (shouldReset) {
     refreshDisplay();
