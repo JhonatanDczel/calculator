@@ -7,15 +7,19 @@ let secondNumber;
 let operator;
 let shouldReset = false;
 
-let d1value;
-let d2value;
-
 //Funciones de funcionamiento de la calculadora 
 function refreshDisplay() {
-
+  display2.textContent = '';
+  shouldReset = false;
 }
 
 //FUnciones para las operationes de la claculadora 
+function appendNumber(number) {
+  if (display2.textContent === '0' || shouldReset) {
+    refreshDisplay();
+  }
+  display2.textContent += number;
+}
 
 function clear() {
   display2.textContent = '0';
