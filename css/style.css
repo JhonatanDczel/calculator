@@ -52,12 +52,14 @@ body {
   color: #818181;
   font-size: 1.5rem;
   font-weight: 400;
+  text-align: right;
 }
 
 .display-2 {
   text-overflow: ellipsis;
   color: #424242;
   font-size: 3rem;
+  text-align: right;
 }
 
 .buttons {
